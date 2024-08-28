@@ -29,31 +29,71 @@
 <body>
     <h1>GitHub Page: Wing-Zin Leung</h1>
     <h3>Synthesized sound samples from the paper <a href="https://arxiv.org/abs/2406.08568" target="_blank">"Training Data Augmentation for Dysarthric Automatic Speech Recognition by Text-to-Dysarthric-Speech Synthesis"</a>.</h3>
-
+    
     <h1>Audio Gallery</h1>
-    <h2>TORGO F01</h2>
-    <div class="audio-container">
-        <div class="audio-item">
-            <audio controls>
-                <source src="audio/F01_HM0032_fair.wav" type="audio/wav">
-                Your browser does not support the audio element.
-            </audio>
-            <div class="caption">Head Mic 0032: FAIR</div>
-        </div>
-        <div class="audio-item">
-            <audio controls>
-                <source src="audio/F01_31_fair.wav" type="audio/wav">
-                Your browser does not support the audio element.
-            </audio>
-            <div class="caption">Synthesis: FAIR</div>
-        </div>
-        <div class="audio-item">
-            <audio controls>
-                <source src="audio/track3.mp3" type="audio/wav">
-                Your browser does not support the audio element.
-            </audio>
-            <div class="caption">Caption for Track 3</div>
-        </div>
-    </div>
+
+    <script>
+       const speakers = [
+            {
+                id: 'F01',
+                files: [
+                    { src: 'audio/F01_HM0032_fair.wav', caption: 'Head Mic 0032: FAIR' },
+                    { src: 'audio/F01_31_fair.wav', caption: 'Synthesis: FAIR' },
+                    { src: 'audio/track3.mp3', caption: 'Caption for Track 3' },
+                    { src: 'audio/track3.mp3', caption: 'Caption for Track 4' }
+                ]
+            },
+            {
+                id: 'F03',
+                files: [
+                    { src: 'audio/F03_HM0032_fair.wav', caption: 'Head Mic 0032: FAIR' },
+                    { src: 'audio/F03_31_fair.wav', caption: 'Synthesis: FAIR' },
+                    { src: 'audio/track3.mp3', caption: 'Caption for Track 3' },
+                    { src: 'audio/track3.mp3', caption: 'Caption for Track 4' }
+                ]
+            },
+            {
+                id: 'F04',
+                files: [
+                    { src: 'audio/F04_HM0032_fair.wav', caption: 'Head Mic 0032: FAIR' },
+                    { src: 'audio/F04_31_fair.wav', caption: 'Synthesis: FAIR' },
+                    { src: 'audio/track3.mp3', caption: 'Caption for Track 3' },
+                    { src: 'audio/track3.mp3', caption: 'Caption for Track 4' }
+                ]
+            }
+        ];
+
+        // Function to generate the HTML for each speaker
+        function generateAudioGallery() {
+            const gallery = document.getElementById('audio-gallery');
+
+            speakers.forEach(speaker => {
+                const speakerSection = document.createElement('div');
+                speakerSection.innerHTML = `<h2>TORGO ${speaker.id}</h2>`;
+                
+                const audioContainer = document.createElement('div');
+                audioContainer.classList.add('audio-container');
+
+                speaker.files.forEach(file => {
+                    const audioItem = document.createElement('div');
+                    audioItem.classList.add('audio-item');
+                    audioItem.innerHTML = `
+                        <audio controls>
+                            <source src="${file.src}" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="caption">${file.caption}</div>
+                    `;
+                    audioContainer.appendChild(audioItem);
+                });
+
+                speakerSection.appendChild(audioContainer);
+                gallery.appendChild(speakerSection);
+            });
+        }
+
+        // Generate the audio gallery on page load
+        window.onload = generateAudioGallery;
+    </script>
 </body>
 </html>
