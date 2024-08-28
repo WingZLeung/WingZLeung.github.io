@@ -1,11 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <body>
     <h1>Welcome to my Github Page</h1>
-    <p>Github page for Wing-Zin Leung</p>
-    <h2>Synthesised sound samples from the paper 'Training Data Augmentation for Dysarthric Automatic Speech Recognition by Text-to-Dysarthric-Speech Synthesis' <a href="https://arxiv.org/abs/2406.08568">Paper</a>.</h2>
 
-    <p> TORGO F01 </p>
-    <audio controls>
-        <source src="audio/your-audio-file.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <h3>Synthesised sound samples from the paper 'Training Data Augmentation for Dysarthric Automatic Speech Recognition by Text-to-Dysarthric-Speech Synthesis' <a href="https://arxiv.org/abs/2406.08568">Paper</a>.</h3>
 </body>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Gallery</title>
+    <style>
+        /* CSS to style audio players and captions */
+        .audio-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .audio-item {
+            flex: 1;
+            max-width: 300px;
+            text-align: center;
+        }
+        audio {
+            width: 100%;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Gallery</h1>
+    <div class="audio-container">
+        <div class="audio-item">
+            <audio controls>
+                <source src="audio/track1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="caption">Caption for Track 1</div>
+        </div>
+        <div class="audio-item">
+            <audio controls>
+                <source src="audio/track2.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="caption">Caption for Track 2</div>
+        </div>
+        <div class="audio-item">
+            <audio controls>
+                <source src="audio/track3.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="caption">Caption for Track 3</div>
+        </div>
+    </div>
+</body>
+</html>
